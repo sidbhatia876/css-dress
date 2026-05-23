@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CSS Ballgown Croquis</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #e8dfd0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.plate {
+  width: 520px;
+  height: 900px;
+  background: #f7f1e6;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(80, 60, 30, 0.15);
+  overflow: hidden;
+}
+
+.plate::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(160, 130, 80, 0.45);
+  pointer-events: none;
+  z-index: 40;
+}
+
+.figure {
+  position: absolute;
+  left: 50%;
+  top: 70px;
+  width: 420px;
+  height: 790px;
+  transform: translateX(-50%);
+}
+
+.floor-shadow {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  width: 310px;
+  height: 22px;
+  transform: translateX(-50%);
+  background: rgba(100, 75, 40, 0.14);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 44px;
+  height: 54px;
+  transform: translateX(-50%);
+  background: linear-gradient(#eed8bc, #dcc4a0);
+  border-radius: 48%;
+  border: 1px solid #a08060;
+  z-index: 25;
+}
+
+.hair {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 60px;
+  height: 42px;
+  transform: translateX(-50%);
+  background: #231508;
+  clip-path: polygon(
+    50% 0%,
+    75% 18%,
+    86% 70%,
+    62% 46%,
+    50% 35%,
+    38% 46%,
+    14% 70%,
+    25% 18%
+  );
+  z-index: 26;
+}
+
+.hat {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 72px;
+  height: 18px;
+  transform: translateX(-50%);
+  background: #160d07;
+  border-radius: 50%;
+  z-index: 27;
+}
+
+.hat::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: -20px;
+  width: 34px;
+  height: 28px;
+  background: #1a1008;
+  border-radius: 45% 45% 20% 20%;
+}
+
+.eye {
+  position: absolute;
+  top: 25px;
+  width: 9px;
+  height: 4px;
+  background: #2a160a;
+  border-radius: 50%;
+  z-index: 28;
+}
+
+.eye.left {
+  left: 7px;
+}
+
+.eye.right {
+  right: 7px;
+}
+
+.lips {
+  position: absolute;
+  top: 39px;
+  left: 50%;
+  width: 16px;
+  height: 7px;
+  transform: translateX(-50%);
+  background: #b86048;
+  border-radius: 50%;
+  z-index: 28;
+}
+
+.neck {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  width: 16px;
+  height: 40px;
+  transform: translateX(-50%);
+  background: linear-gradient(#eed8bc, #dcc4a0);
+  border-left: 1px solid #b89870;
+  border-right: 1px solid #b89870;
+  z-index: 8;
+}
+
+.arm {
+  position: absolute;
+  top: 96px;
+  width: 34px;
+  height: 90px;
+  background: linear-gradient(#eed8bc, #dcc4a0);
+  opacity: 0.72;
+  z-index: 3;
+}
+
+.arm.left {
+  left: 171px;
+  clip-path: polygon(80% 0%, 100% 5%, 70% 100%, 40% 100%);
+}
+
+.arm.right {
+  right: 171px;
+  clip-path: polygon(20% 0%, 0% 5%, 30% 100%, 60% 100%);
+}
+
+.bodice {
+  position: absolute;
+  top: 86px;
+  left: 50%;
+  width: 74px;
+  height: 110px;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #f4eada, #e8d8c0 55%, #cdb88a);
+  clip-path: polygon(
+    15% 0%,
+    35% 6%,
+    50% 2%,
+    65% 6%,
+    85% 0%,
+    100% 100%,
+    0% 100%
+  );
+  border-radius: 35% 35% 8% 8%;
+  z-index: 7;
+}
+
+.bodice-line {
+  position: absolute;
+  top: 92px;
+  left: 50%;
+  width: 1px;
+  height: 96px;
+  background: rgba(120, 90, 50, 0.35);
+  z-index: 8;
+}
+
+.skirt-shadow {
+  position: absolute;
+  top: 188px;
+  left: 50%;
+  width: 398px;
+  height: 670px;
+  transform: translateX(-50%);
+  background: rgba(150, 120, 80, 0.24);
+  clip-path: polygon(
+    43% 0%,
+    57% 0%,
+    72% 18%,
+    88% 45%,
+    98% 78%,
+    88% 94%,
+    70% 100%,
+    30% 100%,
+    12% 94%,
+    2% 78%,
+    12% 45%,
+    28% 18%
+  );
+  z-index: 1;
+}
+
+/* MAIN SKIRT */
+.skirt {
+  position: absolute;
+  top: 178px;
+  left: 50%;
+  width: 365px;
+  height: 650px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 10%, #fffaf0 0%, #f2e8d4 38%, #e2d0b2 72%, #cdb890 100%);
+  clip-path: polygon(
+    43% 0%,
+    57% 0%,
+    72% 18%,
+    88% 45%,
+    98% 78%,
+    88% 94%,
+    70% 100%,
+    30% 100%,
+    12% 94%,
+    2% 78%,
+    12% 45%,
+    28% 18%
+  );
+  border: 2px solid #8a7050;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.skirt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(80,55,25,.42),
+      transparent 30%,
+      transparent 70%,
+      rgba(80,55,25,.36)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba(110,80,35,.25)
+    );
+  z-index: 1;
+}
+
+.skirt::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 44px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(255,255,255,.78), transparent);
+  opacity: 0.52;
+  z-index: 2;
+}
+
+.fold {
+  position: absolute;
+  top: 18px;
+  height: 610px;
+  width: 70px;
+  border-left: 1.4px solid rgba(115, 82, 45, 0.34);
+  border-radius: 50%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.f1 {
+  left: 72px;
+  transform: rotate(8deg);
+  opacity: 0.34;
+}
+
+.f2 {
+  left: 112px;
+  transform: rotate(5deg);
+  opacity: 0.38;
+}
+
+.f3 {
+  left: 150px;
+  transform: rotate(2deg);
+  opacity: 0.42;
+}
+
+.f4 {
+  left: 182px;
+  width: 1px;
+  border-left: 1.2px solid rgba(115, 82, 45, 0.28);
+  transform: rotate(0deg);
+  opacity: 0.35;
+}
+
+.f5 {
+  right: 150px;
+  transform: scaleX(-1) rotate(2deg);
+  opacity: 0.42;
+}
+
+.f6 {
+  right: 112px;
+  transform: scaleX(-1) rotate(5deg);
+  opacity: 0.38;
+}
+
+.f7 {
+  right: 72px;
+  transform: scaleX(-1) rotate(8deg);
+  opacity: 0.34;
+}
+
+.soft-fold {
+  position: absolute;
+  top: 110px;
+  width: 95px;
+  height: 500px;
+  border-left: 1px solid rgba(105, 75, 40, 0.18);
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sf1 {
+  left: 28px;
+  transform: rotate(15deg);
+}
+
+.sf2 {
+  right: 28px;
+  transform: scaleX(-1) rotate(15deg);
+}
+
+.skirt .tail {
+  position: absolute;
+  top: 22px;
+  width: 15px;
+  height: 145px;
+  background: linear-gradient(#2a1e10, #0e0a05);
+  z-index: 13;
+  opacity: 0.98;
+}
+
+.skirt .tail.left {
+  left: 168px;
+  clip-path: polygon(
+    20% 0%,
+    82% 0%,
+    68% 100%,
+    24% 100%
+  );
+}
+
+.skirt .tail.right {
+  left: 184px;
+  clip-path: polygon(
+    18% 0%,
+    80% 0%,
+    76% 100%,
+    32% 100%
+  );
+}
+
+.skirt .motif {
+  position: absolute;
+  width: 12px;
+  height: 7px;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.skirt .motif::before,
+.skirt .motif::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 5px;
+  border: 1px solid rgba(155, 125, 75, 0.65);
+  border-radius: 50%;
+}
+
+.skirt .motif::before {
+  left: 0;
+}
+
+.skirt .motif::after {
+  right: 0;
+}
+
+/* upper band */
+.m1  { top: 72px;  left: 132px; }
+.m2  { top: 66px;  left: 176px; }
+.m3  { top: 72px;  left: 220px; }
+
+/* second band */
+.m4  { top: 188px; left: 76px; }
+.m5  { top: 182px; left: 126px; }
+.m6  { top: 188px; left: 176px; }
+.m7  { top: 182px; left: 226px; }
+.m8  { top: 188px; left: 276px; }
+
+/* third band */
+.m9  { top: 308px; left: 48px; }
+.m10 { top: 302px; left: 108px; }
+.m11 { top: 308px; left: 168px; }
+.m12 { top: 302px; left: 228px; }
+.m13 { top: 308px; left: 288px; }
+
+/* fourth band */
+.m14 { top: 423px; left: 58px; }
+.m15 { top: 417px; left: 128px; }
+.m16 { top: 423px; left: 198px; }
+.m17 { top: 417px; left: 268px; }
+
+/* lower band */
+.m18 { top: 528px; left: 82px; }
+.m19 { top: 522px; left: 152px; }
+.m20 { top: 528px; left: 222px; }
+.m21 { top: 522px; left: 288px; }
+
+/* hem band */
+.m22 { top: 608px; left: 112px; }
+.m23 { top: 602px; left: 182px; }
+.m24 { top: 608px; left: 252px; }
+
+.tier {
+  position: absolute;
+  left: 50%;
+  height: 28px;
+  border-top: 2px solid rgba(130, 95, 55, 0.45);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tier::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4%;
+  width: 92%;
+  height: 20px;
+  border-top: 1px solid rgba(100, 70, 35, 0.16);
+  border-radius: 50%;
+}
+
+.t1 {
+  top: 300px;
+  width: 230px;
+}
+
+.t2 {
+  top: 420px;
+  width: 315px;
+}
+
+.t3 {
+  top: 540px;
+  width: 350px;
+}
+
+.t4 {
+  top: 656px;
+  width: 345px;
+}
+
+.t5 {
+  top: 752px;
+  width: 290px;
+}
+
+.sash {
+  position: absolute;
+  top: 182px;
+  left: 50%;
+  width: 92px;
+  height: 18px;
+  transform: translateX(-50%);
+  background: linear-gradient(#2a1e10, #0e0a05);
+  border-radius: 50%;
+  z-index: 18;
+}
+
+.bow {
+  position: absolute;
+  top: 156px;
+  left: 50%;
+  width: 184px;
+  height: 70px;
+  transform: translateX(-50%);
+  z-index: 19;
+}
+
+.bow::before,
+.bow::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 82px;
+  height: 42px;
+  background: linear-gradient(#2a1e10, #0e0a05);
+  border: 1px solid #0a0604;
+}
+
+.bow::before {
+  left: 0;
+  clip-path: polygon(
+    100% 50%,
+    65% 15%,
+    12% 0%,
+    0% 22%,
+    18% 58%,
+    65% 78%
+  );
+  border-radius: 50% 20% 35% 50%;
+}
+
+.bow::after {
+  right: 0;
+  clip-path: polygon(
+    0% 50%,
+    35% 15%,
+    88% 0%,
+    100% 22%,
+    82% 58%,
+    35% 78%
+  );
+  border-radius: 20% 50% 50% 35%;
+}
+
+.knot {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  width: 20px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: #231608;
+  border-radius: 50%;
+  z-index: 20;
+}
+</style>
+</head>
+
+<body>
+  <div class="plate">
+    <div class="figure">
+
+      <div class="floor-shadow"></div>
+
+      <div class="head">
+        <div class="hair"></div>
+        <div class="hat"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="lips"></div>
+      </div>
+
+      <div class="neck"></div>
+
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+
+      <div class="bodice"></div>
+      <div class="bodice-line"></div>
+
+      <div class="skirt-shadow"></div>
+
+      <div class="skirt">
+        <div class="soft-fold sf1"></div>
+        <div class="soft-fold sf2"></div>
+
+        <div class="fold f1"></div>
+        <div class="fold f2"></div>
+        <div class="fold f3"></div>
+        <div class="fold f4"></div>
+        <div class="fold f5"></div>
+        <div class="fold f6"></div>
+        <div class="fold f7"></div>
+
+        <div class="tail left"></div>
+        <div class="tail right"></div>
+
+        <div class="motif m1"></div>
+        <div class="motif m2"></div>
+        <div class="motif m3"></div>
+
+        <div class="motif m4"></div>
+        <div class="motif m5"></div>
+        <div class="motif m6"></div>
+        <div class="motif m7"></div>
+        <div class="motif m8"></div>
+
+        <div class="motif m9"></div>
+        <div class="motif m10"></div>
+        <div class="motif m11"></div>
+        <div class="motif m12"></div>
+        <div class="motif m13"></div>
+
+        <div class="motif m14"></div>
+        <div class="motif m15"></div>
+        <div class="motif m16"></div>
+        <div class="motif m17"></div>
+
+        <div class="motif m18"></div>
+        <div class="motif m19"></div>
+        <div class="motif m20"></div>
+        <div class="motif m21"></div>
+
+        <div class="motif m22"></div>
+        <div class="motif m23"></div>
+        <div class="motif m24"></div>
+      </div>
+
+      <div class="tier t1"></div>
+      <div class="tier t2"></div>
+      <div class="tier t3"></div>
+      <div class="tier t4"></div>
+      <div class="tier t5"></div>
+
+      <div class="sash"></div>
+
+      <div class="bow">
+        <div class="knot"></div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+
